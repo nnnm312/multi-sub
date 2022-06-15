@@ -2,20 +2,31 @@ MultiSub project
 
 1. DB설계
 
-	1). nonuserVO
+	1). userTypeVO
 	2). userVO
-	3). productVO
-	4). orderVO
-	5). categoryVO
-	6). couponVO
-	7). toppingVO
-	8). 영양VO
+	
+	3). couponVO
+	
+	
+	
+	4). productVO
 
+	5). categoryVO
+	6). toppingVO
+	
+	
+	
+	7). orderVO
+	
+	
+	
+	8). nutritionVO
 	
 	
 	
 	
-	8). LocationVO
+	
+	9). LocationVO
 
 
 
