@@ -7,26 +7,30 @@ MultiSub project
 	
 	3). couponVO
 	
+	4). couponDetailVO
 	
 	
-	4). productVO
 
-	5). categoryVO
-	6). toppingVO
+	5). productVO
+	
+	6). categoryVO
+	7). toppingVO
+	
+	8). toppingDetailVO
 	
 	
 	
-	7). orderVO
+	9). orderVO
 	
 	
 	
-	8). nutritionVO
+	10). nutritionVO
 	
 	
 	
 	
 	
-	9). LocationVO
+	11). LocationVO
 
 
 
