@@ -8,7 +8,7 @@ USE multisub;
 DROP TABLE IF EXISTS coupon;
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS useres;
-DROP TABLE IF EXISTS noneusers;
+DROP TABLE IF EXISTS usersType;
 DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS topping;
 DROP TABLE IF EXISTS product;
@@ -63,13 +63,19 @@ ADD FOREIGN KEY (cateid) REFERENCES category (id);
 
 -- create coupon tabels
 CREATE TABLE coupon (
-	id int primary KEY AUTO_INCREMENT NOT NULL,
+	id VARCHAR(30) primary KEY NOT NULL,
     name VARCHAR(30),
 	discount double,
     period DATE,
     regdate DATE
 );
 
+-- create usersType tables
+CREATE TABLE usersType(
+	id INT PRIMARY KEY,
+    userType VARCHAR(10),
+    regdate Date
+);
 
 -- create users tables
 CREATE TABLE users(
@@ -80,18 +86,12 @@ CREATE TABLE users(
 	addr VARCHAR(50) NOT NULL,
     phone VARCHAR(20) NOT NULL,
     point INT,
+    membersip Varchar(30) NOT NULL,
     couponId INT,
     regdate date
 );
 
-ALTER TABLE users
-ADD FOREIGN KEY (couponId) REFERENCES coupon (id);
 
--- createa noneusers tables
-CREATE TABLE nonusers(
-	id int primary KEY AUTO_INCREMENT NOT NULL,
-    regdate DATE NOT NULL
-);
 
 
 -- create orders table
@@ -99,16 +99,19 @@ CREATE TABLE orders (
 	id int primary KEY AUTO_INCREMENT NOT NULL,
     price INT NOT NULL,
     amount INT NOT NULL,
+    payInfo VARCHAR(10),
+    regdate Date NOT NULL,
+    payState Varchar(10),
+    udate DATE,
     productId INT NOT NULL,
     usersID VARCHAR(30) NOT NULL,
-    noneUsersId INT
+    couponId Varchar(20)
 );
 
 ALTER TABLE orders
 ADD FOREIGN KEY (productId) REFERENCES product(id);
 ALTER TABLE orders
 ADD FOREIGN KEY (usersID) REFERENCES users (id);
-ALTER TABLE orders
-ADD FOREIGN KEY (noneUsersId) REFERENCES nonusers (id);
+
 ```
 
