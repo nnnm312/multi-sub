@@ -1,3 +1,4 @@
+```sql
 DROP DATABASE IF EXISTS multisub;
 
 CREATE DATABASE multisub;
@@ -109,3 +110,5 @@ ALTER TABLE orders
 ADD FOREIGN KEY (usersID) REFERENCES users (id);
 ALTER TABLE orders
 ADD FOREIGN KEY (noneUsersId) REFERENCES nonusers (id);
+```
+
