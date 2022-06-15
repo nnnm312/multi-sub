@@ -11,6 +11,7 @@ DROP TABLE IF EXISTS couponDetail;
 DROP TABLE IF EXISTS usersType;
 DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS topping;
+DROP TABLE IF EXISTS toppingDetail;
 DROP TABLE IF EXISTS product;
 DROP TABLE IF EXISTS nutrition;
 DROP TABLE IF EXISTS orders;
@@ -62,6 +63,17 @@ CREATE TABLE topping (
 ALTER TABLE topping
 ADD FOREIGN KEY (cateid) REFERENCES category (id);
 
+-- crete toppingDetail table
+CREATE TABLE toppingDetail(
+	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    amount INT NOT NULL,
+    price INT NOT NULL,
+    toppingId INT
+);
+
+ALTER TABLE toppingDetail
+ADD FOREIGN KEY (toppingId) REFERENCES topping (id);
+
 -- create coupon tabels
 CREATE TABLE coupon (
 	id INT primary KEY NOT NULL,
@@ -108,26 +120,47 @@ ADD FOREIGN KEY (userId) REFERENCES users (id);
 ALTER TABLE couponDetail
 ADD FOREIGN KEY (couponId) REFERENCES coupon (id);
 
+-- create ordersdetail table
+CREATE TABLE ordersDetail(
+	id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    amount INT NOT NULL,
+    price INT NOT NULL,
+    prodid INT,
+    toppingDId INT
+);
+
+ALTER TABLE ordersDetail
+ADD FOREIGN KEY (prodid) REFERENCES product(id);
+ALTER TABLE ordersDetail
+ADD FOREIGN KEY (toppingDId) REFERENCES toppingDetail(id);
 
 -- create orders table
 CREATE TABLE orders (
 	id int primary KEY AUTO_INCREMENT NOT NULL,
     price INT NOT NULL,
-    amount INT NOT NULL,
     payInfo VARCHAR(10),
     regdate Date NOT NULL,
     payState Varchar(10),
     udate DATE,
-    productId INT NOT NULL,
     usersID VARCHAR(30) NOT NULL,
-    couponDId INT
+    couponDId INT,
+    orderDId INT
 );
 
-ALTER TABLE orders
-ADD FOREIGN KEY (productId) REFERENCES product(id);
+
 ALTER TABLE orders
 ADD FOREIGN KEY (usersID) REFERENCES users (id);
 ALTER TABLE orders
 ADD FOREIGN KEY (couponDId) REFERENCES couponDetail (id);
+ALTER TABLE orders
+ADD FOREIGN KEY (orderDId) REFERENCES ordersDetail (id);
+
+
+
+
+
+
+
+
 ```
 
