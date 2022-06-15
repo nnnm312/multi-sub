@@ -6,13 +6,14 @@ USE multisub;
 
 
 DROP TABLE IF EXISTS coupon;
-DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS useres;
+DROP TABLE IF EXISTS couponDetail;
 DROP TABLE IF EXISTS usersType;
 DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS topping;
 DROP TABLE IF EXISTS product;
 DROP TABLE IF EXISTS nutrition;
+DROP TABLE IF EXISTS orders;
 
 -- create table nutrition
 CREATE TABLE nutrition(
@@ -33,11 +34,11 @@ CREATE TABLE product (
     regdate DATE,
     imgname VARCHAR(30),
     cateid INT,
-    nuId INT
+    nutId INT
 );
 
 ALTER TABLE product
-ADD FOREIGN KEY (nuid) REFERENCES nutrition (id);
+ADD FOREIGN KEY (nutid) REFERENCES nutrition (id);
 
 -- create category tables
 CREATE TABLE category(
@@ -63,11 +64,13 @@ ADD FOREIGN KEY (cateid) REFERENCES category (id);
 
 -- create coupon tabels
 CREATE TABLE coupon (
-	id VARCHAR(30) primary KEY NOT NULL,
+	id INT primary KEY NOT NULL,
     name VARCHAR(30),
 	discount double,
-    period DATE,
-    regdate DATE
+    regdate DATE NOT NULL,
+    expirDate DATE,
+    expirYN INT NOT NULL
+    
 );
 
 -- create usersType tables
@@ -91,7 +94,19 @@ CREATE TABLE users(
     regdate date
 );
 
+-- create couponDetail tables
+CREATE TABLE couponDetail (
+	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	state VARCHAR(10) NOT NULL,
+	useDate Date NOT NULL,
+    userId VARCHAR(30),
+    couponId INT
+);
 
+ALTER TABLE couponDetail
+ADD FOREIGN KEY (userId) REFERENCES users (id);
+ALTER TABLE couponDetail
+ADD FOREIGN KEY (couponId) REFERENCES coupon (id);
 
 
 -- create orders table
@@ -105,13 +120,14 @@ CREATE TABLE orders (
     udate DATE,
     productId INT NOT NULL,
     usersID VARCHAR(30) NOT NULL,
-    couponId Varchar(20)
+    couponDId INT
 );
 
 ALTER TABLE orders
 ADD FOREIGN KEY (productId) REFERENCES product(id);
 ALTER TABLE orders
 ADD FOREIGN KEY (usersID) REFERENCES users (id);
-
+ALTER TABLE orders
+ADD FOREIGN KEY (couponDId) REFERENCES couponDetail (id);
 ```
 
