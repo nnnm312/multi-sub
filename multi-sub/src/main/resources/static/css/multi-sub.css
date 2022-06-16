@@ -1,0 +1,16 @@
+
+.producta{
+	color: black; 
+	text-decoration: none; 
+	outline: none
+}
+
+.producta:hover, .producta:active {
+	text-decoration: none; 
+	color:green; 
+	background-color:#f59000;
+}
+
+#cartForm{
+	float:right;
+}
