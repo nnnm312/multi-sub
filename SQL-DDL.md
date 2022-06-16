@@ -14,12 +14,14 @@ DROP TABLE IF EXISTS topping;
 DROP TABLE IF EXISTS toppingDetail;
 DROP TABLE IF EXISTS product;
 DROP TABLE IF EXISTS nutrition;
+DROP TABLE IF EXISTS ordersDetail;
 DROP TABLE IF EXISTS orders;
+
 
 -- create table nutrition
 CREATE TABLE nutrition(
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    cal DOUBLE NOT NULL,
+    kcal DOUBLE NOT NULL,
     gram DOUBLE NOT NULL,
     protein DOUBLE NOT NULL,
     fat DOUBLE NOT NULL,
@@ -27,19 +29,7 @@ CREATE TABLE nutrition(
     salt DOUBLE NOT NULL
 );
 
--- CREATE product table
-CREATE TABLE product (
-	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-	name VARCHAR(30),
-	price INT,
-    regdate DATE,
-    imgname VARCHAR(30),
-    cateid INT,
-    nutId INT
-);
-
-ALTER TABLE product
-ADD FOREIGN KEY (nutid) REFERENCES nutrition (id);
+INSERT INTO nutrition VALUES(NULL,341,205,25,10,10,5);
 
 -- create category tables
 CREATE TABLE category(
@@ -50,6 +40,29 @@ CREATE TABLE category(
 
 ALTER TABLE category
 ADD FOREIGN KEY (pid) REFERENCES category (id);
+
+INSERT INTO category VALUES(1000,"샌드위치",NULL); 
+INSERT INTO category VALUES(400,"야채",NULL); 
+
+-- CREATE product table
+CREATE TABLE product (
+	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	name VARCHAR(30),
+	price INT,
+    imgname VARCHAR(30),
+    regdate DATE,
+    cateid INT,
+    nutId INT
+);
+
+ALTER TABLE product
+ADD FOREIGN KEY (nutid) REFERENCES nutrition (id);
+ALTER TABLE product
+ADD FOREIGN KEY (cateid) REFERENCES category (id);
+
+
+INSERT INTO product VALUES(NULL,"샌드위치1",5000,"샌드위치1",sysdate(),1000,1);
+
 
 -- create topping table
 CREATE TABLE topping (
@@ -63,6 +76,8 @@ CREATE TABLE topping (
 ALTER TABLE topping
 ADD FOREIGN KEY (cateid) REFERENCES category (id);
 
+INSERT INTO topping VALUES(NULL,"야채",0,"야채사진",400);
+
 -- crete toppingDetail table
 CREATE TABLE toppingDetail(
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -74,16 +89,19 @@ CREATE TABLE toppingDetail(
 ALTER TABLE toppingDetail
 ADD FOREIGN KEY (toppingId) REFERENCES topping (id);
 
+INSERT INTO toppingDetail VALUES(NULL,1,0,1);
+
 -- create coupon tabels
 CREATE TABLE coupon (
-	id INT primary KEY NOT NULL,
+	id INT primary KEY NOT NULL auto_increment,
     name VARCHAR(30),
 	discount double,
     regdate DATE NOT NULL,
     expirDate DATE,
     expirYN INT NOT NULL
-    
 );
+
+INSERT INTO coupon VALUES (NULL,"기본쿠폰",0.1,sysdate(),"2023-06-16",0);
 
 -- create usersType tables
 CREATE TABLE usersType(
@@ -91,6 +109,10 @@ CREATE TABLE usersType(
     userType VARCHAR(10),
     regdate Date
 );
+
+INSERT INTO usersType VALUES (100,"비회원",sysdate());
+INSERT INTO usersType VALUES (200,"회원",sysdate());
+INSERT INTO usersType VALUES (300,"직원",sysdate());
 
 -- create users tables
 CREATE TABLE users(
@@ -102,15 +124,18 @@ CREATE TABLE users(
     phone VARCHAR(20) NOT NULL,
     point INT,
     membersip Varchar(30) NOT NULL,
-    couponId INT,
-    regdate date
+    regdate date,
+    couponId INT
+ 
 );
+
+INSERT INTO users VALUES ("id01","pwd01","lee","email","seoul","010-1234-5678","0","M-100-12345",sysdate(),1);
 
 -- create couponDetail tables
 CREATE TABLE couponDetail (
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 	state VARCHAR(10) NOT NULL,
-	useDate Date NOT NULL,
+	useDate Date,
     userId VARCHAR(30),
     couponId INT
 );
@@ -120,19 +145,7 @@ ADD FOREIGN KEY (userId) REFERENCES users (id);
 ALTER TABLE couponDetail
 ADD FOREIGN KEY (couponId) REFERENCES coupon (id);
 
--- create ordersdetail table
-CREATE TABLE ordersDetail(
-	id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    amount INT NOT NULL,
-    price INT NOT NULL,
-    prodid INT,
-    toppingDId INT
-);
-
-ALTER TABLE ordersDetail
-ADD FOREIGN KEY (prodid) REFERENCES product(id);
-ALTER TABLE ordersDetail
-ADD FOREIGN KEY (toppingDId) REFERENCES toppingDetail(id);
+INSERT INTO couponDetail VALUES (NULL,"미사용",NULL,"id01",1);
 
 -- create orders table
 CREATE TABLE orders (
@@ -143,8 +156,7 @@ CREATE TABLE orders (
     payState Varchar(10),
     udate DATE,
     usersID VARCHAR(30) NOT NULL,
-    couponDId INT,
-    orderDId INT
+    couponDId INT
 );
 
 
@@ -152,15 +164,27 @@ ALTER TABLE orders
 ADD FOREIGN KEY (usersID) REFERENCES users (id);
 ALTER TABLE orders
 ADD FOREIGN KEY (couponDId) REFERENCES couponDetail (id);
-ALTER TABLE orders
-ADD FOREIGN KEY (orderDId) REFERENCES ordersDetail (id);
+
+INSERT INTO orders VALUES (NULL,10000,"현금",sysdate(),"결제완료",NULL,"id01","1");
 
 
+-- create ordersdetail table
+CREATE TABLE ordersDetail(
+	id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    amount INT NOT NULL,
+    price INT NOT NULL,
+    prodid INT,
+    toppingDId INT,
+    ordersId INT
+);
 
+ALTER TABLE ordersDetail
+ADD FOREIGN KEY (prodid) REFERENCES product(id);
+ALTER TABLE ordersDetail
+ADD FOREIGN KEY (toppingDId) REFERENCES toppingDetail(id);
+ALTER TABLE ordersDetail
+ADD FOREIGN KEY (ordersId) REFERENCES orders (id);
 
-
-
-
-
+INSERT INTO ordersDetail VALUES (NULL,1,10000,1,1,1);
 ```
 
