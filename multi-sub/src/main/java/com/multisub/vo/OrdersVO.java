@@ -22,7 +22,5 @@ public class OrdersVO {
 	private Date udate;
 	private String userId;
 	private int couponDId;
-	private int ordersDId;
 	
-
 }

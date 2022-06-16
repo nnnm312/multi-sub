@@ -17,6 +17,7 @@ public class OrdersDetailVO {
 	private int price;
 	private int prodId;
 	private int toppingDId;
+	private int ordersId;
 	
 	private String prodName;
 	private int prodPrice;
