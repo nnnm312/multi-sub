@@ -76,6 +76,7 @@ CREATE TABLE topping (
 ALTER TABLE topping
 ADD FOREIGN KEY (cateid) REFERENCES category (id);
 
+
 INSERT INTO topping VALUES(NULL,"야채",0,"야채사진",400);
 
 -- crete toppingDetail table
