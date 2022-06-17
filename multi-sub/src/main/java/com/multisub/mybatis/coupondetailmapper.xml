@@ -7,8 +7,21 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	<select id="select" parameterType="int" resultType="coupondetailVO">
 		SELECT * FROM COUPONDETAIL WHERE ID=#{id}
 	</select>
+	<select id="selectdetail" parameterType="int" resultType="coupondetailVO">
+		SELECT cd.id, cd.state, cd.useDate, cd.userId, cd.couponId, c.name AS cname, 
+		c.discount AS cdiscount, c.regdate AS cregdate, c.expirDate AS cexpirDate, c.expirYN AS cexpirYN 
+		FROM coupondetail cd
+		INNER JOIN coupon c ON cd.id = c.id
+		WHERE cd.id = #{id}
+	</select>
 	<select id="selectall" resultType="coupondetailVO">
 		SELECT * FROM COUPONDETAIL
+	</select>
+	<select id="selectdetailall" resultType="coupondetailVO">
+		SELECT cd.id, cd.state, cd.usedate, cd.userId, cd.couponId, c.name AS cname, 
+		c.discount AS cdiscount, c.regdate AS cregdate, c.expirDate AS cexpirDate, c.expirYN AS cexpirYN 
+		FROM coupondetail cd
+		INNER JOIN coupon c ON cd.id = c.id
 	</select>
 	<insert id="insert" parameterType="coupondetailVO">
 		INSERT INTO COUPONDETAIL VALUES (NULL, #{state}, #{useDate}, #{userId}, #{couponId})

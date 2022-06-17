@@ -40,5 +40,12 @@ public class CouponDetailBiz implements Biz<Integer, CouponDetailVO>{
 		return dao.selectall();
 	}
 	
+	public CouponDetailVO getsd(Integer k) throws Exception {
+		return dao.selectdetail(k);
+	}
+	
+	public List<CouponDetailVO> getsda() throws Exception {
+		return dao.selectdetailall();
+	}
 	
 }

@@ -20,5 +20,22 @@ public class CouponDetailVO {
 	private String userId;
 	private int couponId;
 	
+	private String cname;
+	private double cdiscount;
+	private String cregdate;
+	private String cexpirDate;
+	private boolean cexpirYN;
+	
+	
+	public CouponDetailVO(int id, String state, String useDate, String userId, int couponId) {
+		
+		this.id = id;
+		this.state = state;
+		this.useDate = useDate;
+		this.userId = userId;
+		this.couponId = couponId;
+	}
+	
+	
 	
 }
