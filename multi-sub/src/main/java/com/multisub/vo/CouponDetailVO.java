@@ -16,19 +16,9 @@ import lombok.ToString;
 public class CouponDetailVO {
 	private int id;
 	private String state;
-	private Date useDate;
+	private String useDate;
 	private String userId;
 	private int couponId;
-	
-	
-	private String couponName;
-	private boolean expirYN;
-	public CouponDetailVO(int id, String state, String userId, int couponId) {
-		this.id = id;
-		this.state = state;
-		this.userId = userId;
-		this.couponId = couponId;
-	}
 	
 	
 }
