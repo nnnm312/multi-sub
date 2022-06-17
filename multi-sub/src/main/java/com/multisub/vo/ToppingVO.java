@@ -14,7 +14,7 @@ import lombok.ToString;
 public class ToppingVO {
 	private int id;
 	private String name;
-	private int price;
+	private int tdPrice;
 	private String imgname;
 	private int cateId;
 }
