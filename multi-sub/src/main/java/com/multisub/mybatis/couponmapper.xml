@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	<select id="select" parameterType="int" resultType="couponVO">
 		SELECT * FROM COUPON WHERE ID=#{id}
 	</select>
-	<select id="selectall" resultType="couponVO">
+	<select id="selectAll" resultType="couponVO">
 		SELECT * FROM COUPON
 	</select>
 	<insert id="insert" parameterType="couponVO">

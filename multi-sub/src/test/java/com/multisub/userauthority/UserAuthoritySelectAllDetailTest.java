@@ -20,7 +20,7 @@ class UserAuthoritySelectAllDetailTest {
 		List<UserAuthorityVO> list = null;
 		
 		try {
-			list = uabiz.get();
+			list = uabiz.getuadas();
 			for (UserAuthorityVO obj : list) {
 				System.out.println(obj);
 			}
