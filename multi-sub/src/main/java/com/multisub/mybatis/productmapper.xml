@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		INSERT INTO product VALUES (NULL,#{name},#{price},#{imgname},SYSDATE(),#{cateId},#{nutId})
 	</insert>
 	<update id="update" parameterType="ProductVO">
-		UPDATE product SET NAME=#{name},PRICE=#{price},IMGNAME=#{imgname} WHERE ID=#{id}
+		UPDATE product SET NAME=#{name},PRICE=#{price},IMGNAME=#{imgname},#{cateId},#{nutId} WHERE ID=#{id}
 	</update>
 	<delete id="delete" parameterType="int">
 		DELETE FROM product WHERE ID=#{id}
