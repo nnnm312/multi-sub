@@ -12,9 +12,9 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class NutritionVO {
-	public NutritionVO(double cal, double gram, double protein, 
-			double fat, double sugar, double salt) {
-		this.cal=cal;
+ 
+	public NutritionVO(double kcal, double gram, double protein, double fat, double sugar, double salt) {
+		this.kcal=kcal;
 		this.gram=gram;
 		this.protein=protein;
 		this.fat=fat;
@@ -23,7 +23,7 @@ public class NutritionVO {
 	}
 		
 	private int id;
-	private double cal;
+	private double kcal;
 	private double gram;
 	private double protein;
 	private double fat;
