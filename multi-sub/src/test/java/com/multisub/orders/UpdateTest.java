@@ -15,11 +15,11 @@ class UpdateTest {
 	
 	@Test
 	void contextLoads() {
-		OrdersVO obj = new OrdersVO(1, 5000, "카카오페이", null, "수령", null, "id01", 1);
+		OrdersVO obj = new OrdersVO(1, 5000, "카카오페이", null, "취소", null, "id01");
 		
 		try {
 			biz.modify(obj);
-			System.out.println("Modified OK");
+			System.out.println(biz.get(2));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
