@@ -14,7 +14,7 @@ public interface CouponMapper {
 	public void delete(int obj) throws Exception;
 	public void update(CouponVO obj) throws Exception;
 	public CouponVO select(int obj) throws Exception;
-	public List<CouponVO> selectall() throws Exception;
+	public List<CouponVO> selectAll() throws Exception;
 }
 
 

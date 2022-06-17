@@ -37,15 +37,15 @@ public class CouponDetailBiz implements Biz<Integer, CouponDetailVO>{
 
 	@Override
 	public List<CouponDetailVO> get() throws Exception {
-		return dao.selectall();
+		return dao.selectAll();
 	}
 	
 	public CouponDetailVO getsd(Integer k) throws Exception {
-		return dao.selectdetail(k);
+		return dao.selectDetail(k);
 	}
 	
 	public List<CouponDetailVO> getsda() throws Exception {
-		return dao.selectdetailall();
+		return dao.selectDetailAll();
 	}
 	
 }

@@ -14,7 +14,7 @@ public interface UserAuthorityMapper {
 	public void delete(int obj) throws Exception;
 	public void update(UserAuthorityVO obj) throws Exception;
 	public UserAuthorityVO select(int obj) throws Exception;
-	public UserAuthorityVO selectdetail(int obj) throws Exception;
-	public List<UserAuthorityVO> selectall() throws Exception;
-	public List<UserAuthorityVO> selectdetailall() throws Exception;
+	public UserAuthorityVO selectDetail(int obj) throws Exception;
+	public List<UserAuthorityVO> selectAll() throws Exception;
+	public List<UserAuthorityVO> selectDetailAll() throws Exception;
 }
