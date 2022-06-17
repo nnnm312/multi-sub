@@ -15,7 +15,7 @@ class InsertTest {
 	
 	@Test
 	void contextLoads() {
-		OrdersVO obj = new OrdersVO(0, 10000, "카드", "결제완료", "id01", 1);
+		OrdersVO obj = new OrdersVO(0, 10000, "카드",null, "결제완료", null,"id01");
 		
 		try {
 			biz.register(obj);
