@@ -37,15 +37,15 @@ public class UserAuthorityBiz implements Biz<Integer, UserAuthorityVO>{
 
 	@Override
 	public List<UserAuthorityVO> get() throws Exception {
-		return dao.selectall();
+		return dao.selectAll();
 	}
 	
 	public UserAuthorityVO getuads(Integer k) throws Exception {
-		return dao.selectdetail(k);
+		return dao.selectDetail(k);
 	}
 	
 	public List<UserAuthorityVO> getuadas() throws Exception {
-		return dao.selectdetailall();
+		return dao.selectDetailAll();
 	}
 	
 	

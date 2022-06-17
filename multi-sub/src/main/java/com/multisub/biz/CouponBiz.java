@@ -37,7 +37,7 @@ public class CouponBiz implements Biz<Integer, CouponVO>{
 
 	@Override
 	public List<CouponVO> get() throws Exception {
-		return dao.selectall();
+		return dao.selectAll();
 	}
 	
 	

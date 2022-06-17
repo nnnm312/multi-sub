@@ -14,7 +14,7 @@ public interface UsersMapper {
 	public void delete(String obj) throws Exception;
 	public void update(UsersVO obj) throws Exception;
 	public UsersVO select(String obj) throws Exception;
-	public UsersVO selectdetail(String obj) throws Exception;
-	public List<UsersVO> selectall() throws Exception;
-	public List<UsersVO> selectdetailall() throws Exception;
+	public UsersVO selectDetail(String obj) throws Exception;
+	public List<UsersVO> selectAll() throws Exception;
+	public List<UsersVO> selectDetailAll() throws Exception;
 }
