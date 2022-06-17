@@ -15,7 +15,7 @@ class CouponDetailInsertTests {
 	
 	@Test
 	void contextLoads() {
-		CouponDetailVO cd = new CouponDetailVO(7, "사용", "2022-06-15", "id01", 1);
+		CouponDetailVO cd = new CouponDetailVO(7, "사용", "2022-06-15", "id01", 1,1);
 		
 		try {
 			cdbiz.register(cd);
