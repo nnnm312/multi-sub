@@ -16,7 +16,7 @@ class UserAuthorityInsertTests {
 	@Test
 	void contextLoads() {
 		
-		UserAuthorityVO ua = new UserAuthorityVO(500, "인턴", null);
+		UserAuthorityVO ua = new UserAuthorityVO(300, "직원");
 		
 		try {
 			uabiz.register(ua);

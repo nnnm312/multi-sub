@@ -18,7 +18,7 @@ class UserAuthoritySelectTest {
 		UserAuthorityVO ua = null;
 		
 		try {
-			ua = uabiz.get(100);
+			ua = uabiz.get(200);
 			System.out.println(ua);
 		} catch (Exception e) {
 			

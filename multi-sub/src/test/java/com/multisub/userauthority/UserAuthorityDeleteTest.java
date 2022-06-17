@@ -15,7 +15,7 @@ class UserAuthorityDeleteTest {
 	@Test
 	void contextLoads() {
 		try {
-			uabiz.remove(400);
+			uabiz.remove(300);
 			System.out.println("Delete OK");
 		} catch (Exception e) {
 			e.printStackTrace();
