@@ -10,6 +10,9 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	<select id="selectall" resultType="usersVO">
 		SELECT * FROM USERS
 	</select>
+	<select id="selectdetailall" resultType="usersVO">
+		SELECT * FROM USERS
+	</select>
 	<insert id="insert" parameterType="usersVO">
 		INSERT INTO USERS VALUES (#{id}, #{pwd}, #{name}, #{email}, #{addr}, #{phone}, #{point}, #{membersip}, CURDATE(),#{couponId});
 	</insert>

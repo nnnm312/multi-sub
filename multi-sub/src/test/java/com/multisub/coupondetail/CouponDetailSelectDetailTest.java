@@ -8,7 +8,7 @@ import com.multisub.biz.CouponDetailBiz;
 import com.multisub.vo.CouponDetailVO;
 
 @SpringBootTest
-class CouponDetailSelectTest {
+class CouponDetailSelectDetailTest {
 	
 	@Autowired
 	CouponDetailBiz cdbiz;
@@ -18,7 +18,7 @@ class CouponDetailSelectTest {
 		CouponDetailVO coupon = null;
 		
 		try {
-			coupon = cdbiz.get(1);
+			coupon = cdbiz.getsd(1);
 			System.out.println(coupon);
 		} catch (Exception e) {
 			

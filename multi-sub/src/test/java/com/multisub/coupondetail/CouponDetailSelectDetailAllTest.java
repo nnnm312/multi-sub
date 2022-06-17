@@ -1,5 +1,7 @@
 package com.multisub.coupondetail;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -8,18 +10,20 @@ import com.multisub.biz.CouponDetailBiz;
 import com.multisub.vo.CouponDetailVO;
 
 @SpringBootTest
-class CouponDetailSelectTest {
+class CouponDetailSelectDetailAllTest {
 	
 	@Autowired
 	CouponDetailBiz cdbiz;
 	
 	@Test
 	void contextLoads() {
-		CouponDetailVO coupon = null;
+		List<CouponDetailVO> list = null;
 		
 		try {
-			coupon = cdbiz.get(1);
-			System.out.println(coupon);
+			list = cdbiz.getsda();
+			for (CouponDetailVO obj : list) {
+				System.out.println(obj);
+			}
 		} catch (Exception e) {
 			
 			e.printStackTrace();

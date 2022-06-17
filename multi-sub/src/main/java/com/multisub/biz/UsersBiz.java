@@ -34,11 +34,18 @@ public class UsersBiz implements Biz<String, UsersVO>{
 	public UsersVO get(String k) throws Exception {
 		return dao.select(k);
 	}
+	
+	public UsersVO getusd(String k) throws Exception {
+		return dao.selectdetail(k);
+	}
 
 	@Override
 	public List<UsersVO> get() throws Exception {
 		return dao.selectall();
 	}
 	
+	public List<UsersVO> getuad() throws Exception {
+		return dao.selectdetailall();
+	}
 	
 }
