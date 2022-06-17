@@ -15,12 +15,12 @@ class UpdateTest {
 	
 	@Test
 	void contextLoads() {
-		ToppingDetailVO obj = new ToppingDetailVO(2,10, 1,1);
+		ToppingDetailVO obj = new ToppingDetailVO(3,500,2000,1,1);
 		
 		try {
 			biz.modify(obj);
 			
-			System.out.println(biz.get(2));
+			System.out.println(biz.get(3));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

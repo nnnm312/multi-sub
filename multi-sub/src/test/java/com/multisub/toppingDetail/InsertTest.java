@@ -15,11 +15,11 @@ class InsertTest {
 	
 	@Test
 	void contextLoads() {
-		ToppingDetailVO obj = new ToppingDetailVO(0,4,1,1);
+		ToppingDetailVO obj = new ToppingDetailVO(0,4,1000,1,1);
 		
 		try {
 			biz.register(obj);
-			System.out.println(biz.get(2));
+			System.out.println(biz.get(3));
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
