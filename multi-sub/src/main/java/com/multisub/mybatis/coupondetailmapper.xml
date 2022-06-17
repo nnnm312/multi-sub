@@ -8,20 +8,26 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		SELECT * FROM COUPONDETAIL WHERE ID=#{id}
 	</select>
 	<select id="selectdetail" parameterType="int" resultType="coupondetailVO">
-		SELECT cd.id, cd.state, cd.useDate, cd.userId, cd.couponId, c.name AS cname, 
-		c.discount AS cdiscount, c.regdate AS cregdate, c.expirDate AS cexpirDate, c.expirYN AS cexpirYN 
+		SELECT cd.id, cd.state, cd.usedate, cd.userId, cd.couponId, c.name AS cname, c.discount AS cdiscount, 
+		c.regdate AS cregdate, c.expirDate AS cexpirDate, c.expirYN AS cexpirYN, us.id AS usid, us.name AS usname,
+		us.point AS uspoint, ord.price AS ordprice, ord.ordersId AS ordersId
 		FROM coupondetail cd
 		INNER JOIN coupon c ON cd.id = c.id
+		INNER JOIN users us ON cd.couponId = us.couponId
+		INNER JOIN ordersdetail ord ON cd.id = ord.id
 		WHERE cd.id = #{id}
 	</select>
 	<select id="selectall" resultType="coupondetailVO">
 		SELECT * FROM COUPONDETAIL
 	</select>
 	<select id="selectdetailall" resultType="coupondetailVO">
-		SELECT cd.id, cd.state, cd.usedate, cd.userId, cd.couponId, c.name AS cname, 
-		c.discount AS cdiscount, c.regdate AS cregdate, c.expirDate AS cexpirDate, c.expirYN AS cexpirYN 
+		SELECT cd.id, cd.state, cd.usedate, cd.userId, cd.couponId, c.name AS cname, c.discount AS cdiscount, 
+		c.regdate AS cregdate, c.expirDate AS cexpirDate, c.expirYN AS cexpirYN, us.id AS usid, us.name AS usname,
+		us.point AS uspoint, ord.price AS ordprice, ord.ordersId AS ordersId
 		FROM coupondetail cd
 		INNER JOIN coupon c ON cd.id = c.id
+		INNER JOIN users us ON cd.couponId = us.couponId
+		INNER JOIN ordersdetail ord ON cd.id = ord.id
 	</select>
 	<insert id="insert" parameterType="coupondetailVO">
 		INSERT INTO COUPONDETAIL VALUES (NULL, #{state}, #{useDate}, #{userId}, #{couponId})

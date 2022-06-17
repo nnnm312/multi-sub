@@ -18,7 +18,7 @@ class CouponDetailSelectTest {
 		CouponDetailVO coupon = null;
 		
 		try {
-			coupon = cdbiz.get(9);
+			coupon = cdbiz.get(1);
 			System.out.println(coupon);
 		} catch (Exception e) {
 			

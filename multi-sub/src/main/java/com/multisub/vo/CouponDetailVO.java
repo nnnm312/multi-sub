@@ -26,6 +26,13 @@ public class CouponDetailVO {
 	private String cexpirDate;
 	private boolean cexpirYN;
 	
+	private String usid;
+	private String usname;
+	private int uspoint;
+	
+	private int ordprice;
+	private int ordersId;
+	
 	
 	public CouponDetailVO(int id, String state, String useDate, String userId, int couponId) {
 		

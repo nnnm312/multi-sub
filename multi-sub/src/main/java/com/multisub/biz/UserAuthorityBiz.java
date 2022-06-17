@@ -40,5 +40,13 @@ public class UserAuthorityBiz implements Biz<Integer, UserAuthorityVO>{
 		return dao.selectall();
 	}
 	
+	public UserAuthorityVO getuads(Integer k) throws Exception {
+		return dao.selectdetail(k);
+	}
+	
+	public List<UserAuthorityVO> getuadas() throws Exception {
+		return dao.selectdetailall();
+	}
+	
 	
 }
