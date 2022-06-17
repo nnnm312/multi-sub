@@ -6,20 +6,20 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 <mapper namespace="com.multisub.mapper.ToppingDetailMapper">
 
 	<select id="select" parameterType="int" resultType="ToppingDetailVO">
-		SELECT td.id, td.amount, t.name as toppingName, td.ordersDId, t.price*td.amount as tdprice FROM toppingDetail td
+		SELECT td.id, td.amount, t.name as toppingName, td.ordersDId,td.tdPrice FROM toppingDetail td
 		INNER JOIN topping t ON td.toppingId = t.id
 		WHERE td.ID=#{id}
 	</select>
 	
 	<select id="selectAll" resultType="ToppingDetailVO">
-		SELECT td.id, td.amount, t.name as toppingName, td.ordersDId, t.price*td.amount as tdprice FROM toppingDetail td
+		SELECT td.id, td.amount, t.name as toppingName, td.ordersDId,td.tdPrice FROM toppingDetail td
 		INNER JOIN topping t ON td.toppingId = t.id
 	</select>
 	<insert id="insert" parameterType="ToppingDetailVO">
-		INSERT INTO toppingDetail VALUES (NULL,#{amount},#{toppingId},#{ordersDId})
+		INSERT INTO toppingDetail VALUES (NULL,#{amount},#{tdPrice},#{toppingId},#{ordersDId})
 	</insert>
 	<update id="update" parameterType="ToppingDetailVO">
-		UPDATE toppingDetail SET AMOUNT=#{amount},TOPPINGID=#{toppingId},ordersDId=#{ordersDId} WHERE ID=#{id}
+		UPDATE toppingDetail SET AMOUNT=#{amount},TDPRICE=#{tdPrice},TOPPINGID=#{toppingId},ordersDId=#{ordersDId} WHERE ID=#{id}
 	</update>
 	<delete id="delete" parameterType="int">
 		DELETE FROM toppingDetail WHERE ID=#{id}

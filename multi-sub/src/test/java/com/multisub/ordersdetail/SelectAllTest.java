@@ -1,29 +1,33 @@
-package com.multisub.toppingDetail;
+package com.multisub.ordersdetail;
+
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.multisub.biz.ToppingDetailBiz;
-import com.multisub.vo.ToppingDetailVO;
+import com.multisub.biz.OrdersDetailBiz;
+import com.multisub.vo.OrdersDetailVO;
 
 @SpringBootTest
-class InsertTest {
+class SelectAllTest {
 
 	@Autowired
-	ToppingDetailBiz biz;
+	OrdersDetailBiz biz;
 	
 	@Test
 	void contextLoads() {
-		ToppingDetailVO obj = new ToppingDetailVO(0,4,1000,1,1);
+		List<OrdersDetailVO> list = null;
 		
 		try {
-			biz.register(obj);
-			System.out.println(biz.get(3));
+			list = biz.get();
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		for (OrdersDetailVO obj : list) {
+			System.out.println(obj);
 		}
 	}
 

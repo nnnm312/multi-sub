@@ -1,25 +1,25 @@
-package com.multisub.toppingDetail;
+package com.multisub.ordersdetail;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.multisub.biz.ToppingDetailBiz;
-import com.multisub.vo.ToppingDetailVO;
+import com.multisub.biz.OrdersDetailBiz;
+import com.multisub.vo.OrdersDetailVO;
 
 @SpringBootTest
 class InsertTest {
 
 	@Autowired
-	ToppingDetailBiz biz;
+	OrdersDetailBiz biz;
 	
 	@Test
 	void contextLoads() {
-		ToppingDetailVO obj = new ToppingDetailVO(0,4,1000,1,1);
+		OrdersDetailVO obj = new OrdersDetailVO(0,5,50000,1,1);
 		
 		try {
 			biz.register(obj);
-			System.out.println(biz.get(3));
+			System.out.println(biz.get(2));
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
