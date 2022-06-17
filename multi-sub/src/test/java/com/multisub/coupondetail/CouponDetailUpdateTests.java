@@ -15,7 +15,7 @@ class CouponDetailUpdateTests {
 	
 	@Test
 	void contextLoads() {
-		CouponDetailVO cd = new CouponDetailVO(7, "미사용", null, "id01", 1);
+		CouponDetailVO cd = new CouponDetailVO(7, "미사용", null, "id01", 1,1);
 		
 		try {
 			cdbiz.modify(cd);
