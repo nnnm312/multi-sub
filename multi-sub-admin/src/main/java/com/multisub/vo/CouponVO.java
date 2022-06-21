@@ -24,7 +24,6 @@ public class CouponVO {
 		
 	
 	public CouponVO(int id, String name, double discount, String expirDate, boolean expirYN) {
-	
 		this.id = id;
 		this.name = name;
 		this.discount = discount;

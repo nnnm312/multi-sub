@@ -21,4 +21,14 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		DELETE FROM USERS WHERE ID=#{id}
 	</delete>
 	
+	<!-- 회원 정보 select -->
+	<select id="selectcustomer" parameterType="String" resultType="usersVO">
+		SELECT * FROM users where userTypeId=200;
+	</select>
+	
+	<!-- 직원 정보 select -->
+	<select id="selectemployee" parameterType="String" resultType="usersVO">
+		SELECT * FROM users where userTypeId=300;
+	</select>
+	
 </mapper>
