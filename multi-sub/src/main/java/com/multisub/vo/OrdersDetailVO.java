@@ -26,6 +26,11 @@ public class OrdersDetailVO {
 	private String udate;
 	private String paydate;
 	
+	private String usersID;
+	private String pname;
+	private String pimgname;
+	private int price;
+	
 	public OrdersDetailVO(int id, int amount, int odPrice, int prodId, int ordersId) {
 		this.id = id;
 		this.amount = amount;
@@ -33,6 +38,14 @@ public class OrdersDetailVO {
 		this.prodId = prodId;
 		this.ordersId = ordersId;
 	}
+
+	public OrdersDetailVO(int amount, int odPrice, int prodId, int ordersId) {
+		this.amount = amount;
+		this.odPrice = odPrice;
+		this.prodId = prodId;
+		this.ordersId = ordersId;
+	}
+	
 	
 	
 }
