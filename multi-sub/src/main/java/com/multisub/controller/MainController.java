@@ -10,13 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.multisub.biz.OrdersBiz;
 import com.multisub.biz.OrdersDetailBiz;
 import com.multisub.biz.ProductBiz;
 import com.multisub.biz.ToppingBiz;
 import com.multisub.biz.ToppingDetailBiz;
+import com.multisub.vo.OrdersDetailVO;
 import com.multisub.vo.ProductVO;
+import com.multisub.vo.ToppingDetailVO;
 import com.multisub.vo.ToppingVO;
 
 @Controller
@@ -199,14 +202,38 @@ public class MainController {
 		return "/main";
 	}
 	
+	@RequestMapping("/orderproductprice")
+	public String orderproductprice(Model m) {
+		
+		List<OrdersDetailVO> list = null;
+		
+		try {
+			list = odbiz.getsoba();
+			m.addAttribute("odlist", list);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		m.addAttribute("center","orderproductprice");
+		
+		return "/main";
+	}	
 	
+
 	@RequestMapping("deleteSession")
 	public String deleteSession(HttpSession session) {
 		session.invalidate();
 		
 		return "redirect:/";
 	}
-	
+	@RequestMapping("/payment")
+	public String payment(Model m) {
+		
+		
+		m.addAttribute("center","payment");
+		return "/main";
+	}
+
 	@RequestMapping("orders")
 	public String orders(Model m, HttpSession session) {
 		
@@ -214,6 +241,15 @@ public class MainController {
 		return "main";
 	}
 	
+
+	@RequestMapping("/mtchoose")
+	public String mtchoose(Model m) {
+		
+		m.addAttribute("center","mtchoose");
+		
+		return "/main";
+	
+	}
 	
 	
 	
