@@ -10,16 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.multisub.biz.OrdersBiz;
 import com.multisub.biz.OrdersDetailBiz;
 import com.multisub.biz.ProductBiz;
 import com.multisub.biz.ToppingBiz;
 import com.multisub.biz.ToppingDetailBiz;
-import com.multisub.vo.OrdersDetailVO;
 import com.multisub.vo.ProductVO;
-import com.multisub.vo.ToppingDetailVO;
 import com.multisub.vo.ToppingVO;
 
 @Controller
@@ -203,9 +200,19 @@ public class MainController {
 	}
 	
 	
+	@RequestMapping("deleteSession")
+	public String deleteSession(HttpSession session) {
+		session.invalidate();
+		
+		return "redirect:/";
+	}
 	
-	
-	
+	@RequestMapping("orders")
+	public String orders(Model m, HttpSession session) {
+		
+		m.addAttribute("center","orders");
+		return "main";
+	}
 	
 	
 	
