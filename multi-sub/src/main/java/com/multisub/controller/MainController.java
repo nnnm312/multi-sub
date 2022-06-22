@@ -219,6 +219,13 @@ public class MainController {
 		return "/main";
 	}	
 	
+
+	@RequestMapping("deleteSession")
+	public String deleteSession(HttpSession session) {
+		session.invalidate();
+		
+		return "redirect:/";
+	}
 	@RequestMapping("/payment")
 	public String payment(Model m) {
 		
@@ -226,7 +233,15 @@ public class MainController {
 		m.addAttribute("center","payment");
 		return "/main";
 	}
+
+	@RequestMapping("orders")
+	public String orders(Model m, HttpSession session) {
+		
+		m.addAttribute("center","orders");
+		return "main";
+	}
 	
+
 	@RequestMapping("/mtchoose")
 	public String mtchoose(Model m) {
 		
