@@ -202,11 +202,39 @@ public class MainController {
 		return "/main";
 	}
 	
+	@RequestMapping("/orderproductprice")
+	public String orderproductprice(Model m) {
+		
+		List<OrdersDetailVO> list = null;
+		
+		try {
+			list = odbiz.getsoba();
+			m.addAttribute("odlist", list);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		m.addAttribute("center","orderproductprice");
+		
+		return "/main";
+	}	
 	
+	@RequestMapping("/payment")
+	public String payment(Model m) {
+		
+		
+		m.addAttribute("center","payment");
+		return "/main";
+	}
 	
+	@RequestMapping("/mtchoose")
+	public String mtchoose(Model m) {
+		
+		m.addAttribute("center","mtchoose");
+		
+		return "/main";
 	
-	
-	
+	}
 	
 	
 	
