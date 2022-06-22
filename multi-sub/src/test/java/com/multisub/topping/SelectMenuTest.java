@@ -20,7 +20,7 @@ class SelectMenuTest {
 		List<ToppingVO> list = null;
 		
 		try {
-			list = biz.selectMenu(310);
+			list = biz.selectMenu(325);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
