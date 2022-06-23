@@ -1,0 +1,30 @@
+
+<meta charset="UTF-8">
+
+
+
+	<div class="row gx-4 gx-lg-5 row-cols-3 row-cols-md-3 row-cols-xl-3 
+	justify-content-center" >                 
+	                  
+	
+		 <!-- product info page -->
+		<div class="col mb-5" th:each="p:${prodlist}">
+			<a  class="producta" th:href="@{slabDetail(id=${p.id})}">
+		     <div class="card h-100">
+		         <!-- Product image-->
+		         <img class="card-img-top productinfo--img" th:src="@{'/img/'+${p.imgname}}" alt="..." />
+		         <!-- Product details-->
+		         <div class="card-body p-4">
+		             <div class="text-center">
+		                 <!-- Product name-->
+		                 <h5 class="fw-bolder" th:text=${p.name}>Fancy Product</h5>
+		                 <!-- Product price-->
+		                 <h5 class="" th:text=${p.price}+'Won'>Fancy Product</h5>
+		                 
+		             </div>
+		         </div>
+		     </div>
+		    </a>		    
+	    </div>
+	
+	</div>
